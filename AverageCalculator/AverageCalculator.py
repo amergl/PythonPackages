@@ -87,3 +87,9 @@ class AverageCalculator:
                 values+=[line.replace(linesep,'').split(self.separator)[1]]
 
         return array(values,dtype=float)
+    
+calculator=AverageCalculator(DEIN_PFAD,separator="\t")
+f=open("/Users/Nora/Desktop/andi_ist_cool.txt","w+")
+for i in range(x.shape[0]):
+    f.write("%f\t%f\n"%(x[i],y[i]))
+f.close()

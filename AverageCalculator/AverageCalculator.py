@@ -62,7 +62,11 @@ class AverageCalculator:
     def GetMeasurementPoints(self,file):
         points=[]
         with open(join(self.directory_path,file)) as f:
+            flag=True
             for line in f:
+                if flag:
+                    flag=False
+                    continue
                 points+=[line.split(self.separator)[0]]
 
         return array(points,dtype=float)
@@ -75,7 +79,11 @@ class AverageCalculator:
     def GetMeasurementValue(self,file):
         values=[]
         with open(join(self.directory_path,file)) as f:
+            flag=True
             for line in f:
+                if flag:
+                    flag=False
+                    continue
                 values+=[line.replace(linesep,'').split(self.separator)[1]]
 
         return array(values,dtype=float)
